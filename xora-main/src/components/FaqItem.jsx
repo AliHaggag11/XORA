@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { useState } from "react";
-import { Collapse } from "react-collapse";
 const FaqItem = ({ item, index }) => {
   const [activeId, setActiveId] = useState(null);
 
@@ -39,13 +38,7 @@ const FaqItem = ({ item, index }) => {
         </div>
       </div>
 
-      <Collapse
-        isOpen={activeId === item.id}
-        className="body-3 px-7 py-3.5"
-        transitionDuration={500}
-      >
-        {item.answer}
-      </Collapse>
+      {active && <div className="body-3 px-7 py-3.5">{item.answer}</div>}
       <div
         className={clsx(
           "g5 -bottom-7 -top-7 left-0 right-0 -z-1 rounded-3xl opacity-0 transition-opacity duration-500 absolute",
